@@ -47,7 +47,8 @@ passport.use(new LinkedInStrategy({
     // represent the logged-in user. In a typical application, you would want
     // to associate the LinkedIn account with a user record in your database,
     // and return that user instead.
-    return done(null, {id: profile.id, displayName: profile.displayName});
+    console.log(profile);
+    return done(null, {id: profile.id, displayName: profile.displayName, token: accessToken});
   });
 }));
 
@@ -73,6 +74,7 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.use(function (req, res, next) {
+  // console.log('req.user.token', req.user.token)
   res.locals.user = req.user
   console.log('locals', res.locals);
   next()
