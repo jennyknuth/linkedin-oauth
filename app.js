@@ -73,8 +73,8 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.use(function (req, res, next) {
-  console.log(req.user);
-  // console.log(profile.displayName);
+  res.locals.user = req.user
+  console.log('locals', res.locals);
   next()
 })
 

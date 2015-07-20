@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   // console.log('profile', profile.displayName)
 console.log('req.user:', req.user);
-  res.render('index', { title: 'Express', user: req.user });
+  res.render('index', { title: 'Express' });
 });
 router.get('/logout', function(req, res, next) {
   req.session = null
